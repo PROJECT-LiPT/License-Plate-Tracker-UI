@@ -6,23 +6,25 @@
     border: transparent;
     background: #00010271;
     user-select: none;
-    backdrop-filter: blur(3px);
+    /* causing lag */
+    /* backdrop-filter: blur(10px); */
     overflow: hidden;
-    min-height: 300px;
-    height: 480px;
-    width: 450px;
+    height: 410px;
+    width: 380px;
     cursor: grab;
     border-radius: 10px;
-    transition: all 0.5s ease-out;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    transition: all 0.3s ease-in-out;
     box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
-    z-index: 999;
   }
   .lp_container_menu:hover {
     background: #00010288;
+    transform: scale3d(1.05, 1.05, 0.5);
     text-shadow: 0 0 5px #fff, 0 0 10px #fff;
   }
   .lp_container_menu .title_bar {
-    position: sticky;
+    position: absolute;
     top: 0px;
     text-align: center;
     border: transparent;
@@ -41,9 +43,9 @@
     position: absolute;
     padding-top: 30px;
     color: rgb(255, 255, 255);
-    height: 180px;
+    height: 100px;
     width: 100%;
-    top: 6vh;
+    top: 3vh;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     background: transparent;
 }  
@@ -53,14 +55,14 @@
 }
 .lp_image_container {
   position: absolute;
-  bottom: 0vh;
+  bottom: -0.5vh;
   display: flex;
   padding: 3px;
   align-items: center;
   background-color: transparent;
   justify-content: center;
-  height: 250px;
-  width: 100%; 
+  height: 230px;
+  width: 101%; 
 }
 .lp_image_container .lp_image {
   height: 100%;

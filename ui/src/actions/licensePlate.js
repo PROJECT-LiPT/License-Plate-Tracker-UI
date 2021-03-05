@@ -1,4 +1,4 @@
-import { FETCH_ALL, UPLOAD } from '../constants/actionTypes';
+import { UPLOAD } from '../constants/actionTypes';
 
 import * as api from '../api/index.js';
 

@@ -1,12 +1,18 @@
 .forms_container {
   position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
   top: 23vh;
   width: 100%;
+  height: auto;
   border-style:dotted;
   box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
   border-color: rgb(202, 194, 202);
   border-left: transparent;
   border-right: transparent;
-  overflow-x: auto;
+  /* overflow-x: auto; */
+  overflow-y: auto;
   background: rgb(121, 83, 83);
 }

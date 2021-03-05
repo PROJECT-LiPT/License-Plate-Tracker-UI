@@ -16,7 +16,7 @@ const App = () => {
       a4: 5
   };
   //current state of App
-  const base64 = useSelector(state => state.licensePlate.base64);
+  // const base64 = useSelector(state => state.licensePlate.base64);
   useEffect(() => {
     //only jpg/jpge work uptonow
     dispatch(uploadLp(currentImage));

@@ -1,5 +1,4 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import FileBase from 'react-file-base64';
 import Draggable from 'react-draggable';
 import './SearchBar.css';

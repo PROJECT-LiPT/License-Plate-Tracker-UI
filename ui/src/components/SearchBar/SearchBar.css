@@ -5,14 +5,16 @@
     justify-content: center;
     overflow: hidden;
     height: 300px;
-    border-radius: 5px;
+    border-radius: 25px;
     border-style:dotted; 
     border-color: rgb(202, 194, 202);
     padding-left: 25px;
     padding-right: 18px;
     right: 2vh; 
     top: 14vh;
-    background-color: rgba(255, 255, 253, 0.26);
+    z-index: 999;
+    backdrop-filter: blur(5px);
+    background-color: rgba(255, 255, 253, 0.24);
     box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
     transition: transform 0.3s ease-out;
 }

@@ -13,10 +13,6 @@
     width: 100%;
 }
 .takenpic_canvas {
-    position: fixed;
+    position: absolute;
     visibility: hidden;
-}
-.snapshot_button {
-    top: 4;
-    bottom: -1vh !important;
 }
