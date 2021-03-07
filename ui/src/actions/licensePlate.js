@@ -1,4 +1,4 @@
-import { UPLOAD } from '../constants/actionTypes';
+import { DELETE, UPLOAD } from '../constants/actionTypes';
 
 import * as api from '../api/index.js';
 
@@ -13,12 +13,22 @@ import * as api from '../api/index.js';
 //   }
 // };
 //successfully push data to backend
-export const uploadLp = (lp) => async (dispatch) => {
+export const uploadLp = (currentImage) => async (dispatch) => {
   try {
-    const { data } = await api.uploadLp(lp);
-    dispatch({ type: UPLOAD, payload: data });
+    dispatch({ type: UPLOAD, payload: currentImage});
+    // send data to backend
+    const { data } = await api.uploadLp(currentImage.base64);
     console.log(data);
   } catch (error) {
     console.log(error.message);
   }
 };
+export const deleteLp = (id) => async (dispatch) => {
+  try {
+    dispatch({ type: DELETE, payload: id});
+    // send data to backend
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
