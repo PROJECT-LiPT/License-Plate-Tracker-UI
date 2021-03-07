@@ -14,3 +14,4 @@ export const uploadLp = (newLp) => axios.post(url, newLp, {
         'Cache-Control': 'public, max-age=604800'
     }
 });
+

@@ -3,7 +3,7 @@ import Draggable from 'react-draggable';
 
 import './LicensePlate.css';
 
-const LicensePlate = ({currentBase64}) => {
+const LicensePlate = ({id, currentBase64}) => {
   const onCloseForm = () => {
     //
   }
@@ -12,7 +12,7 @@ const LicensePlate = ({currentBase64}) => {
     
       <div id="menu" className="lp_container_menu">
         <div className="title_bar">
-           LP ID 
+           {id}
         </div>
         <div className="user_info">
           <div> Owner: { currentBase64 ? <span> Mr. A </span> : <span> Loading...</span> } </div>

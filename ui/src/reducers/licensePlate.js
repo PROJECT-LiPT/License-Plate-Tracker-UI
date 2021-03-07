@@ -1,17 +1,16 @@
-import { FETCH_ALL, UPLOAD } from '../constants/actionTypes';
+import { UPLOAD, DELETE } from '../constants/actionTypes';
 
-const intialState = {
-  id:'test',
-  base64:''
-}
-export default (state = intialState, action) => {
+// const intialState = {
+//   lp:[]
+// };
+export default (licensePlate = [], action) => {
   switch (action.type) {
-    case FETCH_ALL:
-      return action.payload;
     case UPLOAD:
-      return {...state, base64: action.payload};
+      return [...licensePlate, action.payload];
+    case DELETE:
+      return licensePlate.filter((licensePlate) => (licensePlate._id !== action.payload));  
     default:
-      return state;
+      return licensePlate;
   }
 };
 

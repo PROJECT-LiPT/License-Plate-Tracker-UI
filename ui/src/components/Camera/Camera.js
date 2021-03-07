@@ -10,7 +10,7 @@ const CAPTURE_OPTIONS = {
     video: { facingMode: "Environment" }
 };
 
-const Camera = ({onClear, setCurrentTakenPic}) => {
+const Camera = ({onClear, setCurrentTakenPic, currentImage}) => {
     const videoRef = useRef();
     const canvasRef = useRef();
     const [container, setContainer] = useState({height: 250, width: 250});
@@ -48,7 +48,7 @@ const Camera = ({onClear, setCurrentTakenPic}) => {
             container.height
         );
         const takenImageURL = canvasRef.current.toDataURL('image/jpeg', 1.0);
-        setCurrentTakenPic(takenImageURL);
+        setCurrentTakenPic({id: currentImage.length, base64:takenImageURL});
         setIsCanvasEmpty(false);
         setIsFlashing(true);
     }
