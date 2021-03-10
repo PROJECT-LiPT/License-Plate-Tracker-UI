@@ -4,15 +4,35 @@
   flex-direction: row;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  top: 23vh;
+  top: 25vh;
   width: 100%;
-  height: auto;
+  min-height: 100%;
   border-style:dotted;
   box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
   border-color: rgb(202, 194, 202);
   border-left: transparent;
   border-right: transparent;
-  /* overflow-x: auto; */
   overflow-y: auto;
   background: rgb(121, 83, 83);
+}
+.bottom_list {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 0vh;
+  opacity: 0;
+  /* background-color: gold; */
+  height: 100px;
+  width: 100%;
+  transition: all 0.5s ease-in-out;
+}
+.bottom_list:hover {
+  opacity: 100;
+}
+.top_list {
+  position: absolute;
+  top: -20vh;
+  height: 10px;
+  width: 100%;
 }

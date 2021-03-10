@@ -2,7 +2,7 @@
     position: relative;
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
     border-radius: 25px;
     box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
     background: transparent;
