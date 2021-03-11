@@ -7,7 +7,7 @@ import thunk from 'redux-thunk';
 import App from './App';
 
 const store = createStore(reducers, compose(applyMiddleware(thunk)));
-
+//todo: implement router for each ID of lp component
 ReactDOM.render(
   <Provider store={store}>
     <App />

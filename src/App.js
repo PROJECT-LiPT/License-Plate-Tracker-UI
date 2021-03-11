@@ -23,13 +23,7 @@ const App = () => {
   }, [currentImage, dispatch]);
   
   return (
-    <div className="container">
-      <div className="title">
-        <span>License Plate</span>
-        <br />
-        <span>&#9886; Tracker &#9887;</span>
-        <br />
-      </div>
+    <div className="app_container">
       <LicensePlates currentBase64={currentImage}> </LicensePlates> 
       <SearchBar setCurrentBase64={setCurrentImage}> </SearchBar>
     </div>
