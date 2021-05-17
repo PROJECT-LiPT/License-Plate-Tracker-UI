@@ -17,7 +17,7 @@ export const uploadLp = (currentImage) => async (dispatch) => {
   try {
     dispatch({ type: UPLOAD, payload: currentImage});
     // send data to backend
-    const { data } = await api.uploadLp(currentImage.base64);
+    const { data } = await api.uploadLp(currentImage);
     console.log(data);
   } catch (error) {
     console.log(error.message);
