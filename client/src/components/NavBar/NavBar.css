@@ -1,0 +1,79 @@
+header {
+	position: fixed;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 210px;
+	user-select: none;
+	background-color: rgb(16, 83, 100);
+	transition: all 0.5s ease-in-out;
+	overflow: visible;
+	z-index: 999;
+}
+
+header h1 {
+	font-size: 30px;
+	text-align: center;
+	padding: 25px;
+	color: rgb(238, 253, 255);
+	letter-spacing: 2px;
+	text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #9dd7e6;
+}
+header nav {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+header nav a {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	text-decoration: none;
+	color: rgb(255, 255, 255);
+	font-size: 20px;
+	padding-right: 10px;
+	background-repeat: no-repeat;
+	background-position: left center;
+	background-size: contain;
+	margin-bottom: 25px;
+	width: 200px;
+	height: 50px;
+	transition: all 0.35s ease-out;
+}
+header nav .login_nav {
+	background-image: url("../../assets/imgs/login.png");
+}
+header nav .register_nav {
+	background-image: url("../../assets/imgs/sign-up.png");
+}
+header nav .user_nav {
+	background-image: url("../../assets/imgs/profile.png");
+}
+header nav .schedule_nav {
+	background-image: url("../../assets/imgs/schedule.png");
+}
+
+header nav .edit_user_nav {
+	background-image: url("../../assets/imgs/group.png");
+}
+header nav .edit_category_nav {
+	background-image: url("../../assets/imgs/category.png");
+}
+
+header nav .logout_nav {
+	background-image: url("../../assets/imgs/logout.png");
+}
+header nav .home_nav {
+	background-image: url("../../assets/imgs/home.png");
+}
+header nav a:hover {
+	color: #000;
+	border-radius: 5px;
+	font-weight: bold;
+	background-color: rgb(255, 200, 255);
+}

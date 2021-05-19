@@ -1,0 +1,17 @@
+footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	bottom: 0;
+	user-select: none;
+	height: 100px;
+	background-color: pink;
+	width: 100%;
+}
+footer h2 {
+	font-weight: bold;
+	font-size: 25px;
+	margin: 0;
+	text-align: center;
+	/* letter-spacing: 2px; */
+}

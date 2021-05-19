@@ -1,0 +1,129 @@
+.user_info_container {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    top: 20vh;
+    right: 0vh;
+    height: 400px;
+    width: 0px;
+    overflow-x: hidden;
+    border-radius: 5px;
+    padding-left: 0px;
+    padding-right: 25px;
+    background-color: rgb(252, 248, 245);
+    transition: all 0.4s ease-out;
+}
+.user_info_container:hover {
+    width: 410px;
+    overflow-y: auto;
+}
+.user_info_container form {
+    width: 100%;
+}
+.user_info_container .user_img {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 10px;
+    width: 100%;
+}
+.user_info_container h2 {
+    color: rgb(0, 0, 0);
+}
+.user_info_container .user_img img {
+    border-radius: 150px;
+    height: 150px;
+    width: 150px;
+    margin-bottom: 20px;
+    border: 2px double white;
+}
+.user_info_container .user_title {
+    display: block !important;
+    position: sticky;
+    text-align: center;
+    top: 0;
+    padding-left: 25px;
+    color: rgb(0, 0, 0);
+    /* width: 120%; */
+    /* background-color: rgb(184, 201, 255); */
+}
+
+.user_info_container .icon {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+    height: 100%;
+    width: 25px;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background-color: black;
+    color: rgb(252, 252, 252);
+}
+.user_info_container .info_panel {
+    position: relative;
+    display: flex;
+    overflow: auto;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items:center ;
+    left: 5vh;
+    top: 0vh;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+}
+.user_info_container .info_panel div {
+    margin-top: 2vh;
+    display: flex;
+    padding-right: 10px;
+    letter-spacing: 2px;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    text-align: left;
+    color: #000;
+    font-size: 20px;
+}
+.user_info_container .info_panel div span {
+    text-align: right;
+}
+
+.user_info_container button {
+    height: 50px;
+    width: 100%;
+    margin-bottom: 10px;
+    border-style: none;
+    background-size: contain;
+    background-position: center top;
+    background-repeat: no-repeat;
+    color: transparent;
+    transition: all 0.5s ease-in-out;
+}
+.user_info_container button .edit_button {
+    background: url("../../../../assets/imgs/pencil.png");
+}
+.user_info_container button .cancel_button {
+    background: url("../../../../assets/imgs/cancel.png");
+}
+.user_info_container .save_button {
+    background-size: contain !important;
+    background-position: center top !important;
+    background-repeat: no-repeat !important;
+    background: url("../../../../assets/imgs/save.png");
+}
+.user_info_container button:hover {
+    background-color: rgba(177, 195, 255, 0.288);
+}
+
+.user_info_container input, .user_info_container select {
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+    padding-left: 1vh;
+    color: #000;
+    background-color: rgba(210, 216, 233, 0.678);
+    width: 200px;
+}
