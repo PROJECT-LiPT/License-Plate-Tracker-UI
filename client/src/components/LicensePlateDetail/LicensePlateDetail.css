@@ -148,7 +148,7 @@
     justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
-    margin-top: 10px;
+    /* margin-top: 10px; */
     color: rgb(255, 255, 255);
     min-height: 250px; 
     /* width: 300px; */

@@ -1,7 +1,8 @@
 import express from 'express';
-
+import request from 'request';
 import LicensePlate from '../models/licensePlate.js';
 import User from '../models/user.js';
+import findCity from '../utils/findCity.js'
 
 const router = express.Router();
 
@@ -26,21 +27,37 @@ export const deleteLicensePlate = async (req, res) => {
 }
 
 export const createLicensePlate = async (req, res) => {
-    const { id, imgUrl, title, origin, owner} = req.body;
+    const { id, imgUrl, title, origin, uploader, process, step1, step2} = req.body;
 
     const newLicensePlate = new LicensePlate(
         { 
             id: id, 
             imgUrl: imgUrl, 
             title: title,
-            origin: origin,
-            owner: owner, 
+            origin: title ? findCity(title) : '',
+            uploader: uploader,
+            process: process,
+            step1: step1,
+            step2: step2 
         }
     );
-    //todo: find user and push this id to lpList
-    //todo: send imgUrl to Flask Server 
+    
+    // find user and push this id to lpList
     try {
         await newLicensePlate.save();
+        const user = await User.findOne({userName: uploader});
+        const updatedUser = await User.findOneAndUpdate(
+            {userName: user.userName},
+            {
+                $push: {lpList: id}
+            },
+            {new: true}
+            );
+        //todo: send imgUrl to Flask Server 
+        // const endpoint = 'http://127.0.0.1:5000/prediction/';
+        // console.log(endpoint);
+        // req.pipe(request.post(endpoint)).pipe(res);
+        // console.log(res);
         res.status(201).json(newLicensePlate);
     } catch (error) {
         res.status(409).json({ message: error.message });
@@ -49,7 +66,7 @@ export const createLicensePlate = async (req, res) => {
 
 export const updateLicensePlate = async (req, res) => { 
     const { id } = req.params;
-    const { imgUrl, title, origin, } = req.body;
+    const { imgUrl, title, origin, step1, step2, process } = req.body;
     try {
         const licensePlate = await LicensePlate.findOne({id: id});
         //todo: send imgUrl to Flask Server 
@@ -58,7 +75,10 @@ export const updateLicensePlate = async (req, res) => {
             {
                 imgUrl: imgUrl, 
                 title: title,
-                origin: origin
+                origin: origin,
+                step1: step1,
+                step2: step2,
+                process: process
             },
             {new: true}
         );

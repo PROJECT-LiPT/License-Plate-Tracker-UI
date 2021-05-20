@@ -17,6 +17,7 @@ const Camera = ({onClear, isCapture, setIsCapture, isPlaying}) => {
     const videoRef = useRef();
     const canvasRef = useRef();
     const licensePlateList = useSelector((state) => state.user_reducer.licensePlateList);
+    const currentUser = useSelector((state) => state.user_reducer.loggedInUser);
     const [container, setContainer] = useState({height: 250, width: 250});
     const [aspectRatio, calculateRatio] = UseCardRatio(1.586);
     const [isCanvasEmpty, setIsCanvasEmpty] = useState(true);
@@ -55,7 +56,7 @@ const Camera = ({onClear, isCapture, setIsCapture, isPlaying}) => {
             container.height
         );
         const takenImageURL = canvasRef.current.toDataURL('image/jpeg', 1.0);
-        dispatch(createLicensePlate({id: random(1,50000), imgUrl:takenImageURL}))
+        dispatch(createLicensePlate({id: random(1,50000), uploader: currentUser.userName, imgUrl:takenImageURL}))
         .then(() => setIsCapture(false));
         setIsCanvasEmpty(false);
         setIsFlashing(true);
@@ -94,9 +95,6 @@ const Camera = ({onClear, isCapture, setIsCapture, isPlaying}) => {
                 muted
                 hidden={!isVideoPlaying}
             />
-            {/* {isVideoPlaying && (
-                <button type="button" className="snapshot_button" onClick={handleCapture} displayText="&#9737;"/>
-            )} */}
         </div>
     )
 };

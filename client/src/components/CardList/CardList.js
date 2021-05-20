@@ -38,26 +38,26 @@ const CardList = ({context}) => {
             dispatch(filterLicensePlateById(id));
         }
     }
-    const toLastArray = (array) => {
-        if (array) {
-            setCurrentItem(array.length-1);
-        }
-    }
+    // const toLastArray = (array) => {
+    //     if (array) {
+    //         setCurrentItem(array.length-1);
+    //     }
+    // }
 
-    useEffect (() => {
-        switch (context) {
-            case "list":
-                toLastArray(licensePlateList);
-                break;
-            default:
-                setCurrentItem(0);
-                break;
-        }
-    },[licensePlateList, userList]);
+    // useEffect (() => {
+    //     switch (context) {
+    //         case "list":
+    //             toLastArray(licensePlateList);
+    //             break;
+    //         default:
+    //             setCurrentItem(0);
+    //             break;
+    //     }
+    // },[licensePlateList, userList]);
 
-    useEffect (() => {
-        setCurrentItem(0);
-    },[]);
+    // useEffect (() => {
+    //     setCurrentItem(0);
+    // },[]);
 
     const customCarousel  = (children) => (
         <Carousel 
@@ -70,8 +70,8 @@ const CardList = ({context}) => {
             stopOnHove={true}
             showThumbs={false}
             showStatus={false}
-            selectedItem={currentItem}
-            onChange= {(key,card) => setCurrentItem(key)}
+            // selectedItem={currentItem}
+            // onChange= {(key,card) => setCurrentItem(key)}
         >
             {children}
         </Carousel>

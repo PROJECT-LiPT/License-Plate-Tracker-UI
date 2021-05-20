@@ -24,14 +24,14 @@ const App = () => {
     useEffect(()=> {
         dispatch(fetchLicensePlate());
         dispatch(fetchUser());
-        const fetchInterval = setInterval(() => {
-            dispatch(fetchLicensePlate());
-            dispatch(fetchUser());
-        }, 3500);
+        // const fetchInterval = setInterval(() => {
+        //     dispatch(fetchLicensePlate());
+        //     dispatch(fetchUser());
+        // }, 3500);
         if (loginInfo) {
             if (auth.isUser(loginInfo)) history.push('/user');
         }
-        return () => clearInterval(fetchInterval);
+        // return () => clearInterval(fetchInterval);
     },[loginInfo]);
       
     return (

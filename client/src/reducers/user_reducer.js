@@ -42,19 +42,21 @@ export default (state = { loggedInUser }, action) => {
         return { ...state, licensePlateList: action.payload }
     case DELETE_LP:
         return {...state, 
-                licensePlateList: state.licensePlateList.filter((licensePlate) => licensePlate.id != action.payload )
+                licensePlateList: state.licensePlateList.filter((licensePlate) => licensePlate.id != action.payload || licensePlate.id === null )
             }
     case CREATE_LP:
-        return {
-            ...state, 
-                licensePlateList:[...state.licensePlateList, action.payload]
-            }
+        if (action.payload != null) {
+            return {
+                ...state, 
+                    licensePlateList:[...state.licensePlateList, action.payload]
+                }
+        }
     case UPDATE_LP:
         return { ...state, updatedLicensePlate: action.payload}            
     case FILTER_LP_BY_ID:
         return { 
             ...state, 
-                licensePlateList: state.licensePlateList.filter((licensePlate) => licensePlate.id === action.payload)
+                licensePlateList: state.licensePlateList.filter((licensePlate) => licensePlate.title === action.payload)
         }
     case SET_NOTIFICATION:
         return { ...state, notif: action.payload}

@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import path from 'path';
 import dotenv from 'dotenv';
+
 import bodyParser from 'express';
 import userRoutes from './routes/users.js';
 import licensePlateRoutes from './routes/licensePlates.js';

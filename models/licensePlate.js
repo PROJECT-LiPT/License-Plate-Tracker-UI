@@ -7,9 +7,15 @@ const licensePlateSchema = mongoose.Schema({
     },
     title: String,
     origin: String,
+    //origin image
     imgUrl: String,
+    //processed images
+    step1: String,
+    step2: String,
+    //total process time
+    process: Number,
     //username
-    owner: String,
+    uploader: String,
 });
 
 

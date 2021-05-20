@@ -79,8 +79,9 @@
   bottom: 30vh !important;
   background: url("../../../assets/imgs/cancel.png");
 }
-.buy_button {
-  background: url("../../../assets/imgs/schedule.png");
+
+.select_button {
+  background: url("../../../assets/imgs/statistic.png");
 }
 .edit_button {
   background: url("../../../assets/imgs/pencil.png");

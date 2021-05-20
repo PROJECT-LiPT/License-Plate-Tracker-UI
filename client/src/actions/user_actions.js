@@ -162,13 +162,20 @@ export const updateLicensePlate = (id, licensePlateInfo) => async (dispatch) => 
 export const createLicensePlate = (licensePlateInfo) => async (dispatch) => {
   try {
     await dispatch(setIsLoading(true));
-    const { data } = await api.createLicensePlate(licensePlateInfo);
-    await dispatch({ type: CREATE_LP, payload: data});
-    await dispatch(setNotification(`Added licensePlate ${licensePlateInfo.id}`));
-    await dispatch(fetchLicensePlate());
-    await dispatch(setIsLoading(false));
+    const { data } = await api.uploadToFlaskServer(licensePlateInfo);
+    if (data.statusCode != 500) {
+      const { fetch } = await api.createLicensePlate(data);
+      await dispatch({ type: CREATE_LP, payload: fetch});
+      await dispatch(setNotification(`Added licensePlate ${licensePlateInfo.id}`));
+      await dispatch(fetchLicensePlate());
+      await dispatch(setIsLoading(false));
+    } else {
+      await dispatch(setNotification("License Plate Not Found!"));
+      await dispatch(setIsLoading(false));
+    }
   } catch (error) {
-    dispatch(setNotification("Added failed!"));
+    dispatch(setNotification("License Plate Not Found!"));
+    await dispatch(setIsLoading(false));
   }
 };
 

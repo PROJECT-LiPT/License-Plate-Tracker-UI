@@ -4,7 +4,7 @@ import HeadingTitle from '../../HeadingTitle/HeadingTitle';
 import LicensePlateList from '../../LicensePlateList/LicensePlateList';
 import SearchBar from '../../SearchBar/SearchBar';
 import LoadingContainer from '../../../utils/LoadingContainer/LoadingContainer';
-// import LicensePlateDetail from '../../LicensePlateDetail/LicensePlateDetail';
+import LicensePlateDetail from '../../LicensePlateDetail/LicensePlateDetail';
 import Selection from '../../Selection/Selection';
 
 const UserPage = ({user}) => {
@@ -24,7 +24,7 @@ const UserPage = ({user}) => {
                         <LicensePlateList/>
                     </Route>
                     <Route path={`${path}/gallery/:id`}>
-                        {/* <LicensePlateDetail/>     */}
+                        <LicensePlateDetail/>    
                     </Route>
                     <Route exact path={`${path}/algorithm`}>
                         <LoadingContainer/>

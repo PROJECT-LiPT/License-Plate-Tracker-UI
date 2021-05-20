@@ -18,7 +18,7 @@ const Card = ({licensePlate, type, mode}) => {
       if (currentLoginUser === null || currentLoginUser === undefined) {
         dispatch(setNotification("Please login first!"));
       } else {
-        history.push(`/user/licensePlate/${licensePlate.id}`);
+        history.push(`/user/gallery/${licensePlate.id}`);
       } 
     }
   }
@@ -38,7 +38,7 @@ const Card = ({licensePlate, type, mode}) => {
         type === "licensePlate" 
         ? <div className="licensePlate_info">
             <div>Plate Number:&nbsp; <span>{licensePlate.title}</span></div>
-            <div>Owner:&nbsp; <span>{licensePlate.owner}</span></div>
+            <div>Uploader:&nbsp; <span>{licensePlate.uploader}</span></div>
             <div>Origin:&nbsp; <span>{licensePlate.origin}</span></div>
           </div>
         : null   
@@ -49,7 +49,7 @@ const Card = ({licensePlate, type, mode}) => {
             {
               type === "licensePlate" ? 
               <>
-                <button type="button" className="card_button buy_button shadow" onClick={onCardSelect}>Detail</button>   
+                <button type="button" className="card_button select_button shadow" onClick={onCardSelect}>Detail</button>   
                 <button type="button" className="card_button delete_button shadow" onClick={onCardDelete}>Delete</button>
               </>
               : null   
