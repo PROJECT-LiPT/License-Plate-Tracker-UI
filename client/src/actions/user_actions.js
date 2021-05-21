@@ -111,8 +111,9 @@ export const register = (userInfo) => async (dispatch) => {
 export const filterLicensePlateById = (id) => async (dispatch) => {
   try {
     await dispatch(setIsLoading(true));
-    await dispatch(fetchLicensePlate());
+    // await dispatch(fetchLicensePlate());
     await dispatch({ type: FILTER_LP_BY_ID, payload: id});
+    console.log(id);
     await dispatch(setIsLoading(false));
     await dispatch(setNotification(`LicensePlate ${id} selected `));
   } catch (error) {

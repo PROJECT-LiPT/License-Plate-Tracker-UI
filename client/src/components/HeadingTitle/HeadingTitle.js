@@ -14,6 +14,9 @@ const HeadingTitle = ({title, subtitle}) => {
             if(currentUserInfo.isUser) {
                 setUserMode('user');
             } 
+            if(currentUserInfo.isAdmin) {
+                setUserMode('admin');
+            } 
         }
         return () => {
             setUserMode('');
@@ -21,20 +24,31 @@ const HeadingTitle = ({title, subtitle}) => {
     },[currentUserInfo]);
 
     const renderUserMenu = (
-                    <>
-                        <nav>
-                            <Link className="shadow" to={`${url}`}>Home</Link>  
-                            <Link className="shadow" to={`${url}/gallery`}>Gallery</Link>
-                            <Link className="shadow" to={`${url}/upload`}>Upload</Link>
-                            <Link className="shadow" to={`${url}/algorithm`}>Algorithm</Link>
-                        </nav>
-                    </>
-                    );
+        <>
+            <nav>
+                <Link className="shadow" to={`${url}`}>Home</Link>  
+                <Link className="shadow" to={`${url}/gallery`}>Gallery</Link>
+                <Link className="shadow" to={`${url}/upload`}>Upload</Link>
+                <Link className="shadow" to={`${url}/algorithm`}>Algorithm</Link>
+            </nav>
+        </>
+        );
+    const renderAdminMenu = (
+        <>
+            <nav>
+                <Link className="shadow" to={`${url}`}>Home</Link>  
+                <Link className="shadow" to={`${url}/gallery`}>Gallery</Link>
+                <Link className="shadow" to={`${url}/user`}>User</Link>
+            </nav>
+        </>
+        );
     
     const renderMenu = () => {
         switch (userMode) {
             case "user":
                 return renderUserMenu;
+            case "admin":
+                return renderAdminMenu;
             default:
                 return (
                     <>

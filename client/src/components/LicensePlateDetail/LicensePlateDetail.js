@@ -5,6 +5,8 @@ import { useHistory } from 'react-router-dom';
 import './LicensePlateDetail.css';
 import FlashCard from '../FlashCard/FlashCard';
 import ProgressChart from '../Chart/Chart';
+import step2_1 from '../../assets/imgs/step2_1.png';
+import step2_2 from '../../assets/imgs/step2_2.png';
 
 const LicensePlateDetail = () => {
     const {id} = useParams();
@@ -13,7 +15,27 @@ const LicensePlateDetail = () => {
     const modalRef = useRef();
     const licensePlateList = useSelector((state) => state.user_reducer.licensePlateList);
     const [licensePlate, setLicensePlate] = useState(null);
-    
+    const dataSource = [
+      {
+        front: {
+          text: "Step 2_1",
+          image: step2_1,
+        },
+        back: {
+          text: "Processing Image",
+        }
+      },
+      {
+        front: {
+          text: "Step 2_2",
+          image: step2_2,
+        },
+        back: {
+          text: "Decolor",
+        }
+      }
+
+    ];
 
     useEffect(() => {
         if (licensePlateList === undefined || licensePlateList === null) {
@@ -53,6 +75,7 @@ const LicensePlateDetail = () => {
                     <div>Plate Number:&nbsp; <span>{licensePlate?.title}</span></div>
                     <div>Origin:&nbsp; <span>{licensePlate?.origin}</span></div>
                     <div>Processing Time:&nbsp; <span>{Math.round(licensePlate?.process * 100) / 100} second</span></div>
+                    
                 </div>
             </div>
             <h2 className="licensePlate_message shadow">
@@ -60,28 +83,43 @@ const LicensePlateDetail = () => {
             </h2>
             <div className="content_container shadow">
               <div className="test_container">
-                <h2 className="shadow">Statistic</h2>
                 <div className="tests">
-                  <div className="test">
-                    <ProgressChart
-                      type="pie"
-                      label="Overall %"
-                      labels={['Current Process (s)',' Average Process (s)']}
-                      data={[5,10]}
-                      scales={{}}
-                      />
-                  </div>
-                 </div>
+                  <h2>Overall Performance</h2>
+                </div>
               </div>
+              <ProgressChart
+                  type="bar"
+                  label="Processing Time (s)"
+                  labels={licensePlateList?.map((lp) => lp.title)}
+                  data={licensePlateList?.map((lp) => lp.process)}
+                  scales={{
+                      yAxes: [
+                        {
+                          ticks: {
+                            beginAtZero: true
+                          }
+                        }
+                      ]
+                    }}
+              />
               <div className="test_container">
-                <h2 className="shadow">Mechanism</h2>
                 <div className="tests">
-                  <div className="test">Step 1: 
-                    <img alt="Loading..." src={licensePlate?.step1}></img>
-                  </div>
-                  <div className="test">Step 2: 
-                    <img alt="Loading..." src={licensePlate?.step2}></img>
-                  </div>
+                <h2>Mechanism</h2>
+                      <FlashCard
+                          dataSource={dataSource}
+                          voice={"en-EN"}
+                          flipDirection="vertical" 
+                          onChange={(step, side) => console.log(step, side)} 
+                          onSound={(text) => console.log(text)} 
+                          onFinish={() => console.log("Finish!")}
+                          backgroundColor={""}
+                          barColor={"rgba(255, 255, 255, 0.527)"}
+                          cardColor={"rgba(255, 255, 255, 0.527)"}
+                          textColor={"black"}
+                          dropShadow={true}
+                          height={450}
+                          width={"100%"}
+                    />;
                 </div>
               </div>
             </div>

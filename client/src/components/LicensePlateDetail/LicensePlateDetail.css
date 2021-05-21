@@ -83,7 +83,8 @@
     flex-wrap: wrap;
     margin-top: 10px;
     color: rgb(255, 255, 255);
-    min-height: 250px;
+    /* min-height: 250px; */
+    height: 100%;
     width: 100%; 
     padding-bottom: 10px;
 }
@@ -104,6 +105,7 @@
     align-items: center;
     flex-wrap: wrap;
     color: rgb(255, 255, 255);
+    height: 100%;
     width: 100%;
     padding: 0 !important;
 }
@@ -113,33 +115,12 @@
     justify-content: center;
     align-items: flex-start;
     font-size: 25px;
+    height: 100%;
+    width: 100%;
     margin-bottom: 15px;
     border-radius: 5px;
     color: rgb(0, 0, 0);
-    width: 90%;
     cursor: grab;
-}
-
-.detail_page .content_container .test_container .tests .test .test_title {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 25px;
-    padding: 10px;
-    color: rgb(255, 255, 255);
-    background-color: rgba(228, 107, 107, 0.5);
-    transition: all 0.3s ease-out;
-    width: 100%;
-}
-.detail_page .content_container .test_container .tests .test .test_title span {
-    width: 600px;
-    text-align: left;
-    padding-left: 10px;
-}
-
-.detail_page .content_container .test_container .tests .test .test_title:hover {
-    color: rgb(0, 0, 0);
-    background-color: rgb(186, 212, 247);
 }
 
 .detail_page .members {

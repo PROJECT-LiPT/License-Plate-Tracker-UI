@@ -56,8 +56,15 @@ const SearchBar = () => {
                     }
                     <FileBase className="base64" type="file" multiple={false} 
                       onDone = {({base64}) => { 
-                        dispatch(createLicensePlate({id: random(1,50000), uploader: currentUser.userName, imgUrl:base64}));          
-                      }}> 
+                        dispatch(createLicensePlate(
+                          {
+                            id: random(1,50000), 
+                            uploader: currentUser.userName, 
+                            imgUrl:base64
+                          }
+                            ));          
+                      }
+                      }> 
                     </FileBase>
                 </div>
                 <h2>Information</h2>

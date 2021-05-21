@@ -10,6 +10,7 @@ import NavBar from './components/NavBar/NavBar';
 
 const LandingPage = lazy(() => import ('./components/views/LandingPage/LandingPage'));
 const UserPage = lazy(() => import ('./components/views/UserPage/UserPage'));
+const AdminPage = lazy(() => import ('./components/views/AdminPage/AdminPage'));
 
 const App = () => {
     const dispatch = useDispatch();
@@ -30,6 +31,7 @@ const App = () => {
         // }, 3500);
         if (loginInfo) {
             if (auth.isUser(loginInfo)) history.push('/user');
+            if (auth.isAdmin(loginInfo)) history.push('/admin');
         }
         // return () => clearInterval(fetchInterval);
     },[loginInfo]);
@@ -43,7 +45,10 @@ const App = () => {
                         <LandingPage title={title} subTitle={subTitle}/>
                     </Route>
                     <Route path="/user">
-                        <UserPage user={loginInfo}/>
+                        <UserPage/>
+                    </Route>
+                    <Route path="/admin">
+                        <AdminPage/>
                     </Route>
                 </Switch>
             </Suspense>

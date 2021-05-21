@@ -6,6 +6,8 @@ import SearchBar from '../../SearchBar/SearchBar';
 import LoadingContainer from '../../../utils/LoadingContainer/LoadingContainer';
 import LicensePlateDetail from '../../LicensePlateDetail/LicensePlateDetail';
 import Selection from '../../Selection/Selection';
+import EditList from '../../EditList/EditList';
+import Algorithm from '../../Algorithm/Algorithm';
 
 const UserPage = ({user}) => {
     const { path } = useRouteMatch();
@@ -22,12 +24,13 @@ const UserPage = ({user}) => {
                     </Route>
                     <Route exact path={`${path}/gallery`}>
                         <LicensePlateList/>
+                        <EditList/>
                     </Route>
                     <Route path={`${path}/gallery/:id`}>
                         <LicensePlateDetail/>    
                     </Route>
                     <Route exact path={`${path}/algorithm`}>
-                        <LoadingContainer/>
+                        <Algorithm/>
                     </Route>
                 </Switch>
             </main>

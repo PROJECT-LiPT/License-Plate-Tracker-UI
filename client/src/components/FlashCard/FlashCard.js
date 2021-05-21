@@ -153,7 +153,7 @@ const FlashCard = ({ dataSource = [], flipDirection, onSound, onChange, onFinish
   
   return (
     <div style={Styles.container}>
-      {
+      {/* {
         isFinish ? (
           <div style={Styles.finishContainer}>
             <h2 style={{ marginTop: 0, marginBottom: 10 }}>Nice work!</h2>
@@ -161,7 +161,7 @@ const FlashCard = ({ dataSource = [], flipDirection, onSound, onChange, onFinish
             <button style={Styles.startOverButton} onClick={handleStartOver}>Start over</button>
             <button style={Styles.startOverButton} onClick={onFinish}>Finish</button>
           </div>
-        ) : (
+        ) : ( */}
           <div>
             <div style={Styles.progress}>
               <div style={Styles.bar}>
@@ -199,8 +199,8 @@ const FlashCard = ({ dataSource = [], flipDirection, onSound, onChange, onFinish
               </div>
             </div>
           </div>
-        )
-      }
+        {/* ) */}
+      {/* } */}
     </div>
   )
 }
