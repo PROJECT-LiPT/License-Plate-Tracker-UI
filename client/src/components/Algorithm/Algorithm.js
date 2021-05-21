@@ -7,20 +7,32 @@ const Algorithm = () => {
     const dataSource = [
         {
           front: {
-            text: "Step 2_1",
-            image: step2_1,
+            text: "A. Tracking Area",
           },
           back: {
-            text: "Processing Image",
+            text: "1. Labelling dataset. ",
+            text1: "2. Training dataset with yolotiny v3 library. ",
+            text2: "3. Cropping area covering plate numbers. ",
           }
         },
         {
           front: {
-            text: "Step 2_2",
-            image: step2_2,
+            text: "B. Seperating Letters",
           },
           back: {
-            text: "Decolor",
+            text: "1. Converting color from BGR to HSV. ",
+            text1: "2. Justifying selected area using adaptive threshold. ",
+            text2: "3. Using Connected Component Analysis algorithm to split letters. ",
+          }
+        },
+        {
+          front: {
+            text: "C. Classifying Letters",
+          },
+          back: {
+            text: "1. Covering letters or possible noise with contour. ",
+            text1: "2. Creating input for CNN Network by resizing image in (28,28,1) form using aspect ratio, solidity, height ratio. ",
+            text2: "3. From 32 classes to be categorized, inserting images into model with various filtering, then classifying letters with a flattern layer and softmax activation from dense. ",
           }
         }
   
@@ -33,6 +45,7 @@ const Algorithm = () => {
             <FlashCard
                           dataSource={dataSource}
                           voice={"en-EN"}
+                          isDisplaySound={true}
                           flipDirection="vertical" 
                           onChange={(step, side) => console.log(step, side)} 
                           onSound={(text) => console.log(text)} 

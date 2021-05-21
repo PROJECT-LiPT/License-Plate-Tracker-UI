@@ -19,19 +19,19 @@ const LicensePlateDetail = () => {
       {
         front: {
           text: "Step 2_1",
-          image: step2_1,
+          image: "data:image/jpeg;base64," + licensePlateList.find((licensePlate) => licensePlate.id === id).step1,
         },
         back: {
-          text: "Processing Image",
+          text: "Track down plate number area and converting color",
         }
       },
       {
         front: {
           text: "Step 2_2",
-          image: step2_2,
+          image: "data:image/jpeg;base64," + licensePlateList.find((licensePlate) => licensePlate.id === id).step2,
         },
         back: {
-          text: "Decolor",
+          text: "Preparing for classifying letters phase ",
         }
       }
 
@@ -47,7 +47,8 @@ const LicensePlateDetail = () => {
     },[licensePlateList]);
 
     useEffect(() => {
-        scrollToModal();
+      licensePlateList.find((licensePlate) => licensePlate.id === id).step1;
+      scrollToModal();
     },[]);
 
     const scrollToModal = () => {
@@ -108,6 +109,7 @@ const LicensePlateDetail = () => {
                       <FlashCard
                           dataSource={dataSource}
                           voice={"en-EN"}
+                          isDisplaySound={false}
                           flipDirection="vertical" 
                           onChange={(step, side) => console.log(step, side)} 
                           onSound={(text) => console.log(text)} 

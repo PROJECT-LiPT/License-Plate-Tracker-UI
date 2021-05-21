@@ -142,7 +142,7 @@ const CardList = ({context}) => {
                         customCarousel
                         (
                             licensePlateList != null && licensePlateList.length != 0 ?
-                            licensePlateList.filter((lp) => lp.uploader === currentUser.userName) 
+                            licensePlateList.filter((lp) => lp.uploader === currentUser?.userName) 
                             .map ((item,key) => 
                             (<Card key={key} licensePlate={item} type={"licensePlate"} mode={"edit"}/>))
                             : (<LoadingContainer style={'spinner'}/>)

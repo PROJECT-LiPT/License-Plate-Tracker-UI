@@ -171,6 +171,7 @@ export const createLicensePlate = (licensePlateInfo) => async (dispatch) => {
       await dispatch(fetchLicensePlate());
       await dispatch(setIsLoading(false));
     } else {
+      console.log(data);
       await dispatch(setNotification("License Plate Not Found!"));
       await dispatch(setIsLoading(false));
     }

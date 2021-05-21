@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import ReactCardFlip from 'react-card-flip';
 
-const FlashCard = ({ dataSource = [], flipDirection, onSound, onChange, onFinish, voice, height, width, backgroundColor, dropShadow, textColor, barColor, cardColor}) => {
+const FlashCard = ({ dataSource = [], flipDirection, onSound, onChange, onFinish, isDisplaySound, voice, height, width, backgroundColor, dropShadow, textColor, barColor, cardColor}) => {
   const [step, setStep] = useState(1);
   const [side, setSide] = useState("front");
   const [isFinish, setIsFinish] = useState(false);
@@ -30,7 +30,12 @@ const FlashCard = ({ dataSource = [], flipDirection, onSound, onChange, onFinish
   }
 
   const handleSpeaker = () => {
-    const text = dataSource[step - 1][side].text;
+    let text;
+    if (side === "front") {
+      text = dataSource[step - 1][side].text;
+    } else {
+      text = dataSource[step - 1][side].text + dataSource[step - 1][side].text1 + dataSource[step - 1][side].text2;
+    }
     let utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = voice;
     window.speechSynthesis.speak(utterance);
@@ -101,7 +106,9 @@ const FlashCard = ({ dataSource = [], flipDirection, onSound, onChange, onFinish
       alignItems: "center",
       textAlign: "center",
       color: textColor,
+      fontWeight: "bold",
       fontSize: "1.5rem",
+      cursor: 'pointer',
     },
     soundButton: {
       position: "absolute",
@@ -172,7 +179,7 @@ const FlashCard = ({ dataSource = [], flipDirection, onSound, onChange, onFinish
               </div>
             </div>
             <div style={Styles.card}>
-              <img style={Styles.soundButton} src="https://www.flaticon.com/svg/static/icons/svg/786/786272.svg" onClick={handleSpeaker} />
+              { isDisplaySound ? <img style={Styles.soundButton} src="https://www.flaticon.com/svg/static/icons/svg/786/786272.svg" onClick={handleSpeaker} /> : null}
               <div onClick={handleChangeSide} style={{ height: "100%" }}>
                 <ReactCardFlip containerStyle={{ height: "100%" }} isFlipped={side === "back"} flipDirection={flipDirection}>
                   <div style={Styles.cardContent}>
@@ -186,6 +193,8 @@ const FlashCard = ({ dataSource = [], flipDirection, onSound, onChange, onFinish
                       dataSource[step - 1]?.back?.image && <img width="40%" height="40%" src={dataSource[step - 1]?.back?.image} />
                     }
                     <p>{dataSource[step - 1]?.back?.text}</p>
+                    <p>{dataSource[step - 1]?.back?.text1}</p>
+                    <p>{dataSource[step - 1]?.back?.text2}</p>
                   </div>
                 </ReactCardFlip>
               </div>
