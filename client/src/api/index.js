@@ -3,7 +3,7 @@ import axios from 'axios';
 // const flaskUrl = 'http://127.0.0.1:5000/prediction/';
 
 //server máy của Toàn
-const flaskUrl = 'http://smartmekong.vn/prediction/';
+const flaskUrl = 'https://smartmekong.vn/prediction/';
 
 // for heroku server
 const userUrl = 'https://project-lipt.herokuapp.com/users';
