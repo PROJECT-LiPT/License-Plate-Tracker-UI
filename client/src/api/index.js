@@ -3,11 +3,11 @@ import axios from 'axios';
 // const flaskUrl = 'http://127.0.0.1:5000/prediction/';
 
 //server máy của Toàn
-const flaskUrl = 'https://smartmekong.vn/prediction/';
+const flaskUrl = 'http://smartmekong.vn/prediction/';
 
 // for heroku server
-const userUrl = 'https://project-lipt.herokuapp.com/users';
-const licensePlateUrl = 'https://project-lipt.herokuapp.com/licensePlates';
+const userUrl = 'http://project-lipt.herokuapp.com/users';
+const licensePlateUrl = 'http://project-lipt.herokuapp.com/licensePlates';
 
 // for local server
 // const userUrl = 'http://localhost:80/users';
