@@ -1,9 +1,14 @@
 import axios from 'axios';
-//url depends on python flask app host server.
-const flaskUrl = 'http://127.0.0.1:5000/prediction/';
+// local Python server
+// const flaskUrl = 'http://127.0.0.1:5000/prediction/';
+
+//server máy của Toàn
+const flaskUrl = 'http://smartmekong.vn/prediction/';
+
 // for heroku server
 const userUrl = 'https://project-lipt.herokuapp.com/users';
 const licensePlateUrl = 'https://project-lipt.herokuapp.com/licensePlates';
+
 // for local server
 // const userUrl = 'http://localhost:80/users';
 // const licensePlateUrl = 'http://localhost:80/licensePlates';
